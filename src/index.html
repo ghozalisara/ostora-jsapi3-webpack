@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    <link rel="stylesheet" href="https://js.arcgis.com/3.27/esri/themes/calcite/dijit/calcite.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.27/esri/themes/calcite/esri/esri.css">
+
+   
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <title>Map viewer</title>
+
+    <script>
+        var dojoConfig = {
+            locale: localStorage.getItem('locale') || 'en',
+            parseOnLoad: true,
+            async: true,
+            has: {
+                "dojo-firebug": true,
+                "esri-promise-compatibility": 1, // enable native promises and remove the warning about using when() instead of then(). https://developers.arcgis.com/javascript/latest/guide/release-notes/index.html#improved-compatibility-with-javascript-promises
+                "esri-featurelayer-webgl": 1 // (added in 3.24)  render FeatureLayer with WebGL
+            }            
+
+        };
+    </script>
+</head>
+
+<body class="chiller-theme calcite">
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="loader-bar">
+            </div>
+        </div>
+    </div>
+    <header id="header"></header>
+    <main id="main"></main>
+    <footer id="footer"></footer>
+
+      <script src="https://js.arcgis.com/3.27/"></script>
+    <script>
+        require(["main.bundle.js"], function (main) {
+            main.startup();
+        });
+    </script>
+</body>
+
+</html>
