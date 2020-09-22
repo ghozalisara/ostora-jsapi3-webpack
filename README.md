@@ -1,7 +1,7 @@
 # ostora-jsapi3-webpack
 
-## [`ostora-jsapi3`](https://github.com/azouaoui-med/ostora-jsapi3) arranged with webpack
-This project serves as a simple the adaptation of ostora-jsapi3 (a configurable mapwiewer) for webpack.
+## [`ostora-jsapi3`](https://github.com/azouaoui-med/ostora-jsapi3) arranged with webpack 
+This project serves as a simple the adaptation of ostora-jsapi3 (a configurable mapwiewer) for webpack using arcgis js api as an external api.
 
  
 ### Screenshot
@@ -25,7 +25,7 @@ generate a prod build
 npm run build:prod
 ```
 ### Features 
-* Arcgis Webpack Plugin[`@arcgis/webpack-plugin`](https://github.com/Esri/arcgis-webpack-plugin)
+* Arcgis JS API 3
 * Webpack
 * Bootstrap
 * Jquery
