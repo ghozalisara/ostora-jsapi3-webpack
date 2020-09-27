@@ -1,10 +1,15 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const ChunksWebpackPlugin = require("chunks-webpack-plugin");
 const   {CleanWebpackPlugin}   = require('clean-webpack-plugin');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = {
+const environment = (process.env.NODE_ENV || "development").trim();
+
+const devConf  = {
 
     entry: {
         main: [
@@ -17,7 +22,8 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         libraryTarget: 'amd'
     },
-    watch: true,
+  
+   
     module: {
         rules: [
             {
@@ -72,12 +78,10 @@ module.exports = {
             title: "TU WEBPACK",
             filename: "index.html",
             template: "./src/index.html",
-            // chunks: ["index"],
         }),
-        new ChunksWebpackPlugin({
-            name: 'vendor',
-            minChunks: Infinity
-        }),
+        new MiniCssExtractPlugin({
+            filename: "style.bundle.css"
+          }),
         new CleanWebpackPlugin(),
 
     ],
@@ -95,5 +99,30 @@ module.exports = {
             callback();
         }
     ],
-    devtool: 'source-map',
+
 };
+
+const prodConf = Object.assign(
+    {
+      optimization: {
+        minimizer: [
+            new TerserPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: false, // Must be set to true if using source-maps in production
+           
+              }),
+          new OptimizeCSSAssetsPlugin()
+        ]
+      }
+    },
+    devConf
+  );
+  
+  
+  if (environment === "development") {
+    module.exports = devConf;
+  } else {
+    module.exports = prodConf;
+  }
+  

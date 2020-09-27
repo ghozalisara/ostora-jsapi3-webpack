@@ -4,12 +4,16 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build:dev": "webpack --mode development",
-    "build:prod": "webpack --mode production",
+    "build:dev": "cross-env NODE_ENV=development webpack --mode development",
+    "build:prod": "cross-env NODE_ENV=production webpack --mode production",
     "start": "webpack-dev-server --mode development"
   },
   "author": "Ghozali Sara",
-  "dependencies": {},
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "terser-webpack-plugin": "^4.2.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
