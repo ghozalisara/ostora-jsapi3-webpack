@@ -2,10 +2,10 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const   {CleanWebpackPlugin}   = require('clean-webpack-plugin');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const ExcludeAssetsPlugin = require('@ianwalter/exclude-assets-plugin')
 
 const environment = (process.env.NODE_ENV || "development").trim();
 
@@ -31,11 +31,13 @@ const devConf  = {
                 loader: 'babel-loader'
             },
             {
-                test: /\.css$|\.scss$|\.sass$/i,
+                test: [/.css$|.scss$/],
                 use: [
-                    "style-loader",
-                    "css-loader",
-                    "sass-loader",
+                  MiniCssExtractPlugin.loader,
+                  
+                  "css-loader",
+                  "sass-loader",
+                  "postcss-loader"
                 ],
             },
             {
@@ -78,7 +80,9 @@ const devConf  = {
             title: "TU WEBPACK",
             filename: "index.html",
             template: "./src/index.html",
+            excludeAssets: [/main.bundle.js/]
         }),
+        new ExcludeAssetsPlugin(),
         new MiniCssExtractPlugin({
             filename: "style.bundle.css"
           }),

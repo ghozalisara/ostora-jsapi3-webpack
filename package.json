@@ -9,15 +9,14 @@
     "start": "webpack-dev-server --mode development"
   },
   "author": "Ghozali Sara",
-  "dependencies": {
-    "cross-env": "^7.0.2",
-    "optimize-css-assets-webpack-plugin": "^5.0.4",
-    "terser-webpack-plugin": "^4.2.2"
-  },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
+    "@ianwalter/exclude-assets-plugin": "^1.0.0",
+    "cross-env": "^7.0.2",
     "@fortawesome/fontawesome-free": "^5.14.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "terser-webpack-plugin": "^4.2.2",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.2",
     "chunks-webpack-plugin": "^6.1.0",
@@ -36,7 +35,6 @@
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
-    "themify-icons": "^1.0.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",

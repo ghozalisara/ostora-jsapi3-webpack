@@ -8,9 +8,10 @@ define([
     "esri/dijit/Scalebar",
     "../scss/main.scss",
     "bootstrap",
-    "jquery-ui-bundle",
+   
     "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
     "@fortawesome/fontawesome-free/js/all",
+    "jquery-ui-bundle",
     "dojo/domReady!"
 
 ], function (initWidgets, mapConfig, layerConfig, searchConfig, loader, Search, Scalebar) {

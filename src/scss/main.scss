@@ -2,7 +2,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css";
 @import "~jquery-ui-bundle/jquery-ui.min.css";
-// @import "~font-awesome/scss/font-awesome.scss";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
 @import 'mixins';
 @import 'loader';
@@ -218,4 +219,3 @@ label.error {
     width: 100%!important;
 }
 
-//---------------------------------------------
