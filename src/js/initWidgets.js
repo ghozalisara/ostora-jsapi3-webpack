@@ -79,7 +79,7 @@ define([
 
                 }).appendTo(dropdownMenu);
 
-                this.createWidget(map, submenu.widget, menu);
+                this.createWidget(map, submenu, menu);
             });
 
         },
